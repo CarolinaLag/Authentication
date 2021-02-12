@@ -3,23 +3,33 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const router = require("./routes/todoRoute");
+const userRouter = require("./routes/userRoute");
+const homeRouter = require("./routes/homeRoute");
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/static", express.static("public"));
 
+app.use(cookieParser())
+
+app.use("/", router);
+app.use(userRouter);
+app.use(homeRouter);
+
 //connection to db
 mongoose.set("useFindAndModify", false);
 
 app.set("view engine", "ejs");
 
-app.use("/", router);
+const options = {
+  useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true,
+};
 
 mongoose.connect(
-  process.env.DB_CONNECT,
-  { useNewUrlParser: true, dbName: "TodoApp", useUnifiedTopology: true },
+  process.env.DB_CONNECT,options,
   (err) => {
     console.log(err);
     if (err) return;

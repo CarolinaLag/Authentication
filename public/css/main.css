@@ -10,6 +10,33 @@ body {
   font-family: "Roboto", sans-serif;
 
 }
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.menuName {
+    padding: 15px;
+}
+
+.menuLink {
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: black;
+  padding: 10px;
+}
+
+.menuLink:hover {
+    background: rgb(131, 173, 185);
+    border-radius: 5%;
+}
+
 .todoContainer {
   color: white;
   position: absolute;
@@ -159,8 +186,69 @@ body {
   
 }
 
+.loginContainer, .registerContainer, .resetContainer, .homeContainer, .checkMailContainer, .resetFormContainer {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  background: rgba(17, 18, 19, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    
+}
+
+.loginText, .registerText {
+    padding: 10px;
+    
+}
+
+.regLink, .logoutLink, .resendLink {
+    padding: 10px;
+    text-decoration: none;
+font-weight: bold;
+color: white;
+}
+
+.regLink:hover, .logoutLink:hover, .resendLink:hover {
+    background: rgb(131, 173, 185);
+    border-radius: 5%;
+}
+
+.loginInput, .regInput, .resetInput {
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.loginBtn, .regBtn, .resetBtn {
+  border: none;
+border-radius: 5px;
+cursor: pointer;
+padding: 10px;
+background: black;
+color: white;
+margin: 10px;
+}
+
+.loginBtn:hover, .regBtn:hover, .resetBtn:hover {
+  opacity: 0.7;
+}
+
+
 @media screen and (min-width: 1024px) {
   .todoContainer {
     width: 40%;
+  }
+  .menu {
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
   }
 }
