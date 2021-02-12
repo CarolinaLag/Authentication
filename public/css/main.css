@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+body {
+  background: #4b5055;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  font-family: "Roboto", sans-serif;
+
+}
+.todoContainer {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  background: rgba(17, 18, 19, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todoHeading {
+  padding: 10px;
+  font-size: 2em;
+}
+
+.todo {
+  width: 80%;
+}
+
+.todoInput {
+  width: 80%;
+  border: none;
+  border-radius: 25px;
+  height: 35px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 300;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  padding: 0 11px 0 13px;
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.subBtn {
+  color: white;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  border:none;
+  cursor: pointer;
+  padding: 5px;
+  background-color: rgb(0, 0, 0);
+  margin: 0.25px;
+  height: 40px;
+  width: 40px;
+}
+.subBtn:hover{
+  opacity: 0.7;
+}
+.fas {
+  font-size: 18px;
+  padding: 5px;
+}
+
+.todoList {
+  list-style: none;
+}
+
+.sort {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  padding: 5px;
+}
+
+.sort:hover {
+  background: rgb(151, 148, 148);
+  border-radius: 5px;
+}
+
+.pagination {
+  padding: 10px;
+}
+
+.page {
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  padding: 5px;
+}
+
+.page:hover {
+  background: rgb(151, 148, 148);
+  border-radius: 5px;
+}
+
+.todoListItem {
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background: none;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.todoListItem div {
+  flex-grow: 2;
+  padding: 3px;
+  border-bottom: 2px solid #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.todoListItem input {
+  flex-grow: 2; 
+   border: none;
+  border-radius: 25px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.todoListItem button {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(48, 204, 95);
+}
+
+.todoListItem .cancel {
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  background-color: rgb(223, 43, 43);
+}
+
+.todoListItem .edit {
+  color:  rgb(48, 204, 95);
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+.todoListItem .remove {
+  color: rgb(223, 43, 43);
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+
+@media screen and (min-width: 1024px) {
+  .todoContainer {
+    width: 40%;
+  }
+}
