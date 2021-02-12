@@ -30,6 +30,7 @@ const resetSubmit = async (req, res) => {
   // token , tokenExpiration
   const token = await crypto.randomBytes(32).toString("hex");
   // sparar token, token expiration
+
   user.token = token;
   user.tokenExpiration = Date.now() + 3600000;
   await user.save();
@@ -49,6 +50,7 @@ const resetParams = async (req, res) => {
   // req.params
 
   const token = req.params.token;
+ 
   try {
     const user = await User.findOne({
       token: token,
