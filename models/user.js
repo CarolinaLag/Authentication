@@ -7,7 +7,11 @@ const userSchema = new mongoose.Schema({
     password: {type:String, required: true},
     role: String,
      token: String,
-     tokenExpiration: Date
+     tokenExpiration: Date,
+     todoList:[{
+         type:mongoose.Schema.Types.ObjectId,
+         ref:"task"
+     }]
 })
 
 const User = mongoose.model("user", userSchema)

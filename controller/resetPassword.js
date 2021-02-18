@@ -32,7 +32,10 @@ const resetRender = (req, res) => {
 };
 
 const resetSubmit = async (req, res) => {
+  console.log(req.body.email)
   const email = req.body.email;
+
+
 
   // check if user exists
 
@@ -52,7 +55,7 @@ const resetSubmit = async (req, res) => {
     from: process.env.USER,
     to: user.email,
     subject: "Reset password requested",
-    html_content: `<h2> Klicka  <a href="http://localhost:5000/reset/${user.token}" > Här </a> för att kunna återställa lösenord </h2>`,
+    html: `<h2> Klicka  <a href="http://localhost:5000/reset/${user.token}" > Här </a> för att kunna återställa lösenord </h2>`,
   });
 
   res.render("checkMail.ejs");
