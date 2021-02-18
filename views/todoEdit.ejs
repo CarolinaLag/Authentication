@@ -33,7 +33,7 @@
       <ul class="todoList">
         <% todoTasks.forEach(todo => { %> <% if (todo._id == idTask) { %>
         <li class="todoListItem">
-          <form action="/edit/<%= todo._id %>" method="post">
+          <form action="/edit/<%= todo._id %>/?page=<%=(currentPage)%>&sorted=<%=sorted%>" method="post">
             <input
               type="text"
               value="<%= todo.content %>"
@@ -51,7 +51,7 @@
         <% } else { %>
         <li class="todoListItem">
           <div class="todoName"><%= todo.content %></div>
-          <a href="/edit/<%= todo._id%>?page=<%= page %>" class="edit">
+          <a href="/edit/<%= todo._id %>/<%= currentPage %>&sorted=<%=sorted%>" class="edit">
             <span class="fas fa-edit"></span>
           </a>
           <a href="/remove/<%= todo._id %>?page=<%= page %>" class="remove">

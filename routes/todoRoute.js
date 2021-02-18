@@ -17,6 +17,7 @@ router.get("/", async (req, res) => {
       
       res.render("todo.ejs", {
         todoTasks: data,
+        currentPage:page,
         page,
         totalData,
         taskPerReq,
@@ -32,6 +33,7 @@ router.get("/", async (req, res) => {
       
       res.render("todo.ejs", {
         todoTasks: data,
+        currentPage:page,
         page,
         totalData,
         taskPerReq,
@@ -76,6 +78,7 @@ router.get("/edit/:id", async (req, res) => {
       res.render("todoEdit.ejs", {
         todoTasks: data,
         idTask: id,
+        currentPage:page,
         page,
         totalData,
         taskPerReq,
@@ -92,6 +95,7 @@ router.get("/edit/:id", async (req, res) => {
       res.render("todoEdit.ejs", {
         todoTasks: data,
         idTask: id,
+        currentPage: page,
         page,
         totalData,
         taskPerReq,
@@ -107,9 +111,11 @@ router.get("/edit/:id", async (req, res) => {
 
 router.post("/edit/:id", async (req, res) => {
   const id = req.params.id;
+  const page = +req.query.page || 1;
+  const sort = +req.query.sorted || -1;
   try {
     await TodoTask.findByIdAndUpdate(id, { content: req.body.content });
-    res.redirect("/");
+    res.redirect(`/?page=${page}&sorted=${sort}`);
   } catch (err) {
     res.redirect("/");
   }

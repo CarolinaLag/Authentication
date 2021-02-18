@@ -3,17 +3,29 @@ const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 
-// reset render : en resetemailForm.ejs
-// reset submit : submit formuläret
+const sgMail = require("@sendgrid/mail");
+var sgTransport = require('nodemailer-sendgrid-transport');
+const SMTPConnection = require("nodemailer/lib/smtp-connection");
+require("dotenv").config();
 
 //skapar en tunnel till från vår app till mail server
-const transport = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "feddynamiskweb@gmail.com",
-    pass: "FedDynamiskWeb.2021",
-  },
-});
+// const transport = nodemailer.createTransport({
+//   service: "gmail",
+//   auth: {
+//     user: "feddynamiskweb@gmail.com",
+//     pass: "FedDynamiskWeb.2021",
+//   },
+// });
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+  var options = {
+    auth: {
+           api_key: process.env.SENDGRID_API_KEY,
+         }
+  }
+  
+  var transport = nodemailer.createTransport(sgTransport(options));
 
 const resetRender = (req, res) => {
   res.render("reset.ejs", { err: "" });
@@ -37,10 +49,10 @@ const resetSubmit = async (req, res) => {
   // en länk med token  till användarens mejl adressen
 
   await transport.sendMail({
-    from: "feddynamiskweb@gmail.com",
+    from: process.env.USER,
     to: user.email,
-    subject: "reset password requested",
-    html: `<h2> Klicka  <a href="http://localhost:5000/reset/${user.token}" > Här </a> för att kunna återställa lösenord </h2>`,
+    subject: "Reset password requested",
+    html_content: `<h2> Klicka  <a href="http://localhost:5000/reset/${user.token}" > Här </a> för att kunna återställa lösenord </h2>`,
   });
 
   res.render("checkMail.ejs");
