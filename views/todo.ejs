@@ -42,7 +42,7 @@
           >
             <span class="fas fa-edit"></span>
           </a>
-          <a href="/remove/<%= todo._id %>" class="remove">
+          <a href="/remove/<%= todo._id %>?page=<%= page %>&&sorted=<%= sorted %>" class="remove">
             <span class="fas fa-trash"></span>
           </a>
         </li>

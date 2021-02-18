@@ -55,8 +55,20 @@ router.post("/", async (req, res) => {
 
   try {
     const result = await todoTask.save();
+
+    const todoId = req.params.id
+
+    const user = await TodoTask.findOne({_id:req.body._id})
+    //console.log(user.todoList)
+
+    user.addTodo(todoId);
+    //console.log(user);
+
+    const userWithTodoData = await TodoTask.findOne({_id:req.body._id}).populate("todoList");
+    //console.log(userWithTodoData.todoList)
+    res.render("todo.ejs", {todoItem: userWithTodoData.todoList, err: ""})
     
-    res.redirect("/");
+    //res.redirect("/");
   } catch (err) {
     res.redirect("/");
   }
@@ -123,10 +135,12 @@ router.post("/edit/:id", async (req, res) => {
 
 router.get("/remove/:id", (req, res) => {
   const id = req.params.id;
+  const page = +req.query.page || 1;
+  const sort = +req.query.sorted || -1;
   try {
     TodoTask.findByIdAndRemove(id, (err) => {
       if (err) return res.send(500, err);
-      res.redirect("/");
+      res.redirect(`/?page=${page}&sorted=${sort}`);
     });
   } catch (err) {
     res.redirect("/");

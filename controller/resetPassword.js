@@ -32,11 +32,8 @@ const resetRender = (req, res) => {
 };
 
 const resetSubmit = async (req, res) => {
-  console.log(req.body.email)
+  
   const email = req.body.email;
-
-
-
   // check if user exists
 
   const user = await User.findOne({ email: email });
