@@ -49,6 +49,9 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
 
+  const page = +req.query.page || 1;
+  const sort = +req.query.sorted || -1;
+
   const todoTask = new TodoTask({
     content: req.body.content
   });
@@ -58,19 +61,20 @@ router.post("/", async (req, res) => {
 
     const todoId = req.params.id
 
-    const user = await TodoTask.findOne({_id:req.body._id})
+    //const user = await TodoTask.findOne({_id:req.body._id})
     //console.log(user.todoList)
+    //resultat._id
 
-    user.addTodo(todoId);
-    //console.log(user);
+    result.addTodo(todoId);
+    console.log(result);
 
     const userWithTodoData = await TodoTask.findOne({_id:req.body._id}).populate("todoList");
     //console.log(userWithTodoData.todoList)
-    res.render("todo.ejs", {todoItem: userWithTodoData.todoList, err: ""})
+    res.render("home.ejs", {todoItem: userWithTodoData.todoList, err: ""})
     
     //res.redirect("/");
   } catch (err) {
-    res.redirect("/");
+    res.redirect(`/?page=${page}&sorted=${sort}`);
   }
 });
 
