@@ -3,10 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background: #4b5055;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   font-family: "Roboto", sans-serif;
+}
+
+.logoutTodo {
+  position:absolute;
+  top:0;
+  right:0;
+  margin: 20px;
+}
+
+.logoutTodoLink {
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  height: 50px;
+  width: 70px;
+}
+
+.logoutTodoLink:hover {
+  background: rgb(131, 173, 185);
+  border-radius: 5%;
 }
 
 .menu {
