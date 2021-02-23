@@ -14,18 +14,18 @@
   />
 </head>
 <body>
-<div class="logoutTodo">
-  <a href="/logout" class="logoutTodoLink">Logout</a>
+  <div class="logoutTodo">
+    <a href="/logout" class="logoutTodoLink">Logout</a>
+  </div>
+
+<div class="welcomeSection">
+  <div class="welcomeUser">Hi! Welcome <%= user.name %> !</div>
 </div>
 
   <div class="todoContainer">
     <h2 class="todoHeading">Todo List</h2>
     <div class="todo">
-      <form
-        action="/"
-        method="post"
-        class="todoHeader"
-      >
+      <form action="/todo" method="post" class="todoHeader">
         <input type="text" class="todoInput" name="content" />
         <button type="submit" class="subBtn">
           <span class="fas fa-plus"></span>
@@ -41,12 +41,15 @@
           </div>
 
           <a
-            href="/edit/<%= todo._id %>?page=<%= page %>&&sorted=<%= sorted %>"
+            href="/todo/edit/<%= todo._id %>?page=<%= page %>&&sorted=<%= sorted %>"
             class="edit"
           >
             <span class="fas fa-edit"></span>
           </a>
-          <a href="/remove/<%= todo._id %>?page=<%= page %>&&sorted=<%= sorted %>" class="remove">
+          <a
+            href="/todo/remove/<%= todo._id %>?page=<%= page %>&&sorted=<%= sorted %>"
+            class="remove"
+          >
             <span class="fas fa-trash"></span>
           </a>
         </li>

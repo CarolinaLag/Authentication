@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const router = require("./routes/todoRoute");
+const todoRouter = require("./routes/todoRoute");
 const userRouter = require("./routes/userRoute");
 const homeRouter = require("./routes/homeRoute");
 
@@ -15,7 +15,7 @@ app.use("/static", express.static("public"));
 
 app.use(cookieParser())
 
-app.use("/", router);
+app.use(todoRouter);
 app.use(userRouter);
 app.use(homeRouter);
 

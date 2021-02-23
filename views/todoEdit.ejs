@@ -34,7 +34,7 @@
       <ul class="todoList">
         <% todoTasks.forEach(todo => { %> <% if (todo._id == idTask) { %>
         <li class="todoListItem">
-          <form action="/edit/<%= todo._id %>/?page=<%=(currentPage)%>&sorted=<%=sorted%>" method="post">
+          <form action="/todo/edit/<%= todo._id %>/?page=<%=(currentPage)%>&sorted=<%=sorted%>" method="post">
             <input
               type="text"
               value="<%= todo.content %>"
@@ -44,7 +44,7 @@
               name="content"
             />
             <button type="submit"><i class="fas fa-check"></i></button>
-            <a href="/?page=<%= page %>&&sorted=<%= sorted %>" class="cancel"
+            <a href="/todo/?page=<%= page %>&&sorted=<%= sorted %>" class="cancel"
               ><i class="fas fa-times"></i
             ></a>
           </form>
@@ -52,10 +52,10 @@
         <% } else { %>
         <li class="todoListItem">
           <div class="todoName"><%= todo.content %></div>
-          <a href="/edit/<%= todo._id %>/<%= currentPage %>&sorted=<%=sorted%>" class="edit">
+          <a href="/todo/edit/<%= todo._id %>/<%= currentPage %>&sorted=<%=sorted%>" class="edit">
             <span class="fas fa-edit"></span>
           </a>
-          <a href="/remove/<%= todo._id %>/<%= currentPage %>&sorted=<%=sorted%>" class="remove">
+          <a href="/todo/remove/<%= todo._id %>/<%= currentPage %>&sorted=<%=sorted%>" class="remove">
             <span class="fas fa-times"></span>
           </a>
         </li>

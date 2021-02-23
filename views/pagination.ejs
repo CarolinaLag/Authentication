@@ -2,13 +2,13 @@
   <% if(typeof totalPages !== undefined ){ if(totalPages !==
   dataToShow/taskPerReq) { %>
 
-  <a href="/?page=<%=(dataToShow/taskPerReq)+1%>" class="page"
+  <a href="/todo/?page=<%=(dataToShow/taskPerReq)+1%>" class="page"
     >Next <i class="fas fa-arrow-alt-circle-right"></i
   ></a>
 
   <% }if(page >= 2) { %>
 
-  <a href="/?page=<%=(dataToShow/taskPerReq)-1%>" class="page"
+  <a href="/todo/?page=<%=(dataToShow/taskPerReq)-1%>" class="page"
     >Back <i class="fas fa-arrow-alt-circle-left"></i
   ></a>
 

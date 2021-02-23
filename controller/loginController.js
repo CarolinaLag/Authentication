@@ -45,7 +45,7 @@ const loginSubmit = async (req, res) => {
             res.cookie("jwtToken", jwtToken, {maxAge: 360000000, httpOnly:true})
                
            }
-           return res.redirect("/")
+           return res.redirect("/todo")
        }
        
        return res.redirect("/login")

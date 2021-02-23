@@ -31,30 +31,19 @@ body {
   border-radius: 5%;
 }
 
-.menu {
-  list-style: none;
+.welcomeSection {
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: center;
+  margin: 10px;
 }
 
-.menuName {
-  padding: 15px;
-}
-
-.menuLink {
-  text-decoration: none;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.2rem;
+.welcomeUser {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
   font-weight: 600;
-  color: black;
-  padding: 10px;
-}
-
-.menuLink:hover {
-  background: rgb(131, 173, 185);
-  border-radius: 5%;
+  font-size: 20px;
+  padding:10px;
 }
 
 .todoContainer {
