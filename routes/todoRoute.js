@@ -80,8 +80,8 @@ router.post("/todo",verifyUser , async (req, res) => {
   }
 });
 
-router.get("/todo/edit/:id", async (req, res) => {
-  try {
+router.get("/todo/edit/:id", verifyUser, async (req, res) => {
+ 
   const page = +req.query.page || 1;
   const totalData = await TodoTask.find().countDocuments();
   const taskPerReq = 5;
@@ -93,6 +93,7 @@ router.get("/todo/edit/:id", async (req, res) => {
     const user =  await User.findOne({_id: req.user.user._id});
     const userTodos = await user.todoList;
 
+    try {
     if (page === 1) {
       let data = await TodoTask.find({_id: userTodos}).limit(dataToShow).sort({ date: sorted });
 
@@ -128,11 +129,12 @@ router.get("/todo/edit/:id", async (req, res) => {
       });
     }
   } catch (err) {
+    console.log(err)
     res.redirect("/todo");
   }
 });
 
-router.post("/todo/edit/:id", async (req, res) => {
+router.post("/todo/edit/:id", verifyUser, async (req, res) => {
   const id = req.params.id;
   const page = +req.query.page || 1;
   const sort = +req.query.sorted || -1;
@@ -144,7 +146,7 @@ router.post("/todo/edit/:id", async (req, res) => {
   }
 });
 
-router.get("/todo/remove/:id", (req, res) => {
+router.get("/todo/remove/:id", verifyUser, (req, res) => {
   const id = req.params.id;
   const page = +req.query.page || 1;
   const sort = +req.query.sorted || -1;
