@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+//const findOrCreate = require ('mongoose-findorcreate')
+
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
@@ -7,6 +9,7 @@ const userSchema = new mongoose.Schema({
   role: String,
   token: String,
   tokenExpiration: Date,
+  facebookId: String,
   todoList: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -20,6 +23,8 @@ userSchema.methods.addTodo = function (todoId) {
 
   this.save();
 };
+
+//userSchema.plugin(findOrCreate);
 
 
 const User = mongoose.model("user", userSchema);

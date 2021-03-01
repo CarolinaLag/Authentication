@@ -40,3 +40,4 @@ mongoose.connect(
     );
   }
 );
+mongoose.set("useCreateIndex", true)

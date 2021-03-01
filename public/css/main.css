@@ -220,7 +220,8 @@ body {
 
 .regLink,
 .logoutLink,
-.resendLink {
+.resendLink,
+.regFBLink {
   padding: 10px;
   text-decoration: none;
   font-weight: bold;
@@ -229,7 +230,8 @@ body {
 
 .regLink:hover,
 .logoutLink:hover,
-.resendLink:hover {
+.resendLink:hover,
+.regFBLink:hover {
   background: rgb(131, 173, 185);
   border-radius: 5%;
 }
@@ -268,6 +270,10 @@ body {
 
 .resetMailSent {
   line-height: 2;
+}
+
+.fab {
+  padding:10px;
 }
 
 @media screen and (min-width: 1024px) {
