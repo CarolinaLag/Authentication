@@ -5,7 +5,7 @@ _A todolist made with Express, Mongo and EJS as a school assignment_
 Examples of functionality of the Todo List:
 
 - Register new user
-- Login to be able to see users todo
+- Login to be able to see user todo
 - Reset password possibility
 - Unique todolist per user
 - Save all todo models in the database
@@ -59,7 +59,7 @@ Project root
 ├── public/css
 ├── └── css styling
 ├── routes
-├── └── Routing-related logic/js-files
+├── └── routing-related logic/js-files
 ├── views
 ├── └── HTML/ejs-files
 ├── node_modules

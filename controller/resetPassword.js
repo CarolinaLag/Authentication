@@ -5,17 +5,8 @@ const bcrypt = require("bcrypt");
 
 const sgMail = require("@sendgrid/mail");
 var sgTransport = require('nodemailer-sendgrid-transport');
-const SMTPConnection = require("nodemailer/lib/smtp-connection");
-require("dotenv").config();
 
-//skapar en tunnel till från vår app till mail server
-// const transport = nodemailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: "feddynamiskweb@gmail.com",
-//     pass: "FedDynamiskWeb.2021",
-//   },
-// });
+require("dotenv").config();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -34,33 +25,29 @@ const resetRender = (req, res) => {
 const resetSubmit = async (req, res) => {
   
   const email = req.body.email;
-  // check if user exists
 
   const user = await User.findOne({ email: email });
 
   if (!user) return res.redirect("/register");
-  // token , tokenExpiration
+  
   const token = await crypto.randomBytes(32).toString("hex");
-  // sparar token, token expiration
 
   user.token = token;
   user.tokenExpiration = Date.now() + 3600000;
   await user.save();
-  // en länk med token  till användarens mejl adressen
 
   await transport.sendMail({
     from: process.env.USER,
     to: user.email,
     subject: "Reset password requested",
-    html: `<h2> Klicka  <a href="http://localhost:5000/reset/${user.token}" > Här </a> för att kunna återställa lösenord </h2>`,
+    html: `<h2> Click  <a href="http://localhost:5000/reset/${user.token}" > here </a> to reset the password </h2>`,
   });
 
   res.render("checkMail.ejs");
 };
 
 const resetParams = async (req, res) => {
-  // req.params
-
+  
   const token = req.params.token;
  
   try {
@@ -84,14 +71,12 @@ const resetFormSubmit = async (req, res) => {
   const salt = await bcrypt.genSalt(12);
   const hashedPassword = await bcrypt.hash(password, salt);
 
-  //vilken användare ska ha den nya lösenordet
   const user = await User.findOne({ email: email });
 
   user.password = hashedPassword;
   await user.save();
   res.redirect("/login");
 
-  // verifera om mejl adressen finns
 };
 
 module.exports = {

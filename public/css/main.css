@@ -241,7 +241,7 @@ body {
   outline: none;
   border-radius: 25px;
   padding: 5px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .loginBtn,
@@ -262,13 +262,20 @@ body {
   opacity: 0.7;
 }
 
+.checkMailContainer {
+  font-weight: 600;
+}
+
+.resetMailSent {
+  line-height: 2;
+}
+
 @media screen and (min-width: 1024px) {
   .todoContainer {
     width: 40%;
   }
-  .menu {
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px;
+  .checkMailContainer{
+    width: 50%;
   }
+  
 }

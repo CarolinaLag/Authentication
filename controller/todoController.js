@@ -61,10 +61,8 @@ const createTodo = async (req, res) => {
       content: req.body.content
     }).save()
 
-    //console.log("hej ", req.user.user)
     const user = await User.findOne({_id: req.user.user._id});
 
-    //console.log("hello" , user)
     user.addTodo(todoTask._id);
     const userTodos = await User.findOne({ _id: req.user.user._id }).populate(
       "todoList"
@@ -146,13 +144,17 @@ const removeTodo = async (req, res) => {
     const id = req.params.id;
     const page = +req.query.page || 1;
     const sort = +req.query.sorted || -1;
+    const user = await User.findOne({ _id: req.user.user._id });
+   
     try {
       TodoTask.findByIdAndRemove(id, (err) => {
+        user.todoList.pull({ _id: id });
+        user.save();
         if (err) return res.send(500, err);
         res.redirect(`/todo/?page=${page}&sorted=${sort}`);
       });
     } catch (err) {
-      res.redirect("/");
+      res.redirect("/todo");
     }
 }
 

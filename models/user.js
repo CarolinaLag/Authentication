@@ -21,11 +21,6 @@ userSchema.methods.addTodo = function (todoId) {
   this.save();
 };
 
-// userSchema.methods.deleteTodo = function (todoId) {
-
-//   this.todoList.splice(todoId);
-//   this.save();
-// };
 
 const User = mongoose.model("user", userSchema);
 

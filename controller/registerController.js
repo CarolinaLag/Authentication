@@ -6,15 +6,12 @@ const registerRender = (req, res) => {
   };
 
   const registerSubmit = async (req, res) => {
-    //Läsa data från req.body
     const { name, email, password } = req.body;
     
-    //spara lösenord med salt och bcrypt: hash password
     try {
     const salt = await bcrypt.genSalt(12);
     const hashedPassword = await bcrypt.hash(password, salt)
 
- //Skapa en new user utifrån req.body
     new User({
         name: name,
         email: email,
