@@ -10,7 +10,7 @@ const {
   removeTodo,
 } = require("../controller/todoController");
 
-router.get("/todo", verifyUser, renderTodo);
+router.get("/todo", verifyUser , renderTodo);
 router.post("/todo", verifyUser, createTodo);
 router.get("/todo/edit/:id", verifyUser, editTodo)
 router.post("/todo/edit/:id", verifyUser, postEdit)

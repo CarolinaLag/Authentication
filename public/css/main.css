@@ -230,8 +230,7 @@ body {
 
 .regLink:hover,
 .logoutLink:hover,
-.resendLink:hover,
-.regFBLink:hover {
+.resendLink:hover {
   background: rgb(131, 173, 185);
   border-radius: 5%;
 }
@@ -270,6 +269,19 @@ body {
 
 .resetMailSent {
   line-height: 2;
+}
+
+.registerFB {
+  margin:5px;
+}
+
+.regFBLink {
+  background: rgb(59,89,152);
+  border-radius: 2%;
+}
+
+.regFBLink:hover {
+  opacity: 0.7;
 }
 
 .fab {
