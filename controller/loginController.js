@@ -18,7 +18,10 @@ const loginSubmit = async (req, res) => {
   try {
     const user = await User.findOne({ email: email });
 
-    if (!user)
+      if (email == '' || password == '') {
+        return res.render('login.ejs', {err: 'All fields are required' })
+      }
+      if (!user)
       return res.render("login.ejs", { err: "User is not valid" });
 
     const validUser = await bcrypt.compare(password, user.password);
@@ -42,7 +45,7 @@ const loginSubmit = async (req, res) => {
   } catch (err) {
     res.render("login.ejs", { err: err });
   }
-  return res.redirect("/login");
+  //return res.redirect("/login");
 };
 
 module.exports = {
