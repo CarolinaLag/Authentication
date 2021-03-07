@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/static", express.static("public"));
 
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 
 app.use(todoRouter);
@@ -31,13 +32,12 @@ const options = {
 mongoose.connect(
   process.env.DB_CONNECT,options,
   (err) => {
-    console.log(err);
+    //console.log(err);
     if (err) return;
     console.log("Connected to db!");
 
-    app.listen(process.env.PORT || 5001, (err) =>
+      app.listen(process.env.PORT || 5001, (err) =>
      console.log("Server is running")
     );
   }
 );
-mongoose.set("useCreateIndex", true)

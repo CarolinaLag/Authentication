@@ -1,7 +1,4 @@
 const mongoose = require("mongoose");
-const findOrCreate = require ('mongoose-findorcreate')
-const passportLocalMongoose = require("passport-local-mongoose")
-
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
@@ -10,7 +7,6 @@ const userSchema = new mongoose.Schema({
   role: String,
   token: String,
   tokenExpiration: Date,
-  facebookId: String,
   todoList: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -24,10 +20,6 @@ userSchema.methods.addTodo = function (todoId) {
 
   this.save();
 };
-
-userSchema.plugin(findOrCreate);
-userSchema.plugin(passportLocalMongoose);
-
 
 const User = mongoose.model("user", userSchema);
 

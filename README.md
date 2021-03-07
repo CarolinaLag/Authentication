@@ -22,11 +22,23 @@ Use following command to install:
 npm i
 
 ```
+## Dependencies
+- mongoose
+- express
+- ejs
+- dotenv
+- jsonwebtoken
+- cookie-parser
+- bcrypt
+- nodemailer 
+- nodemailer-sendgrid-transport
+- @sendgrid/mail
+
 ## How to run
 - Clone the repo and install all neccessary dependencies
 - Run `npm start`
 
-**Note that the URI of the database and localhost port is in a hidden .env file that is not included in this repository, and you will therefore need your own MongoDB Atlas account to use this TodoApp.**
+**Note that the URI of the database, localhost port, sendgrid key and user is in a hidden .env file that is not included in this repository, and you will therefore need your own MongoDB Atlas account to use this TodoApp.**
 
 ## Naming conventions
 

@@ -15,10 +15,11 @@
 </head>
 <body>
   <div class="registerContainer">
+    <h2 class="registerHeading">Register</h2>
     <form action="/register" method="post">
       <% if(err) { %>
 
-      <div><%= err %></div>
+      <div class="registerErr"><%= err %></div>
 
       <% } %>
       <input
@@ -49,10 +50,7 @@
         <span>Already have an account?</span>
         <a href="/login" class="regLink">Login</a>
       </div>
-
-      <div class="registerFB">
-        <a href="/register/facebook" class="regFBLink"><i class="fab fa-facebook fa-lg"></i>Register with Facebook</a>
-      </div>
+      
     </form>
   </div>
 </body>

@@ -148,6 +148,7 @@ const removeTodo = async (req, res) => {
    
     try {
       TodoTask.findByIdAndRemove(id, (err) => {
+        //user.removeTodo(id)
         user.todoList.pull({ _id: id });
         user.save();
         if (err) return res.send(500, err);

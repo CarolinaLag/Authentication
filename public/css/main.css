@@ -213,6 +213,11 @@ body {
   align-items: center;
 }
 
+.loginErr, .registerErr, .resetErr {
+color:red;
+padding: 10px;
+}
+
 .loginText,
 .registerText {
   padding: 10px;
@@ -265,6 +270,10 @@ body {
 
 .checkMailContainer {
   font-weight: 600;
+}
+
+.resetHeading, .registerHeading {
+  padding:10px;
 }
 
 .resetMailSent {
