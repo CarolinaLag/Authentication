@@ -38,7 +38,18 @@ npm i
 - Clone the repo and install all neccessary dependencies
 - Run `npm start`
 
-**Note that the URI of the database, localhost port, sendgrid key and user is in a hidden .env file that is not included in this repository, and you will therefore need your own MongoDB Atlas account to use this TodoApp.**
+## Usage .env
+Create a .env file in the root directory of your project. Then add environment-specific variables on new lines in the form of `NAME=VALUE`. Replace {value} with your own data. For example:
+
+```
+DB_CONNECT= {value}
+PORT= {value}
+SECRET_KEY= {value}
+USER_EMAIL= {value}
+SENDGRID_API_KEY= {value}
+
+```
+**This app use the database MongoDB, to be able to setup your own database, please go to MongoDB Atlas to create an account.**
 
 ## Naming conventions
 
