@@ -11,12 +11,14 @@ const registerRender = (req, res) => {
 
 const registerSubmit = async (req, res) => {
   const { name, email, password } = req.body;
+  const userName = await User.findOne({ name: name})
+  const userEmail = await User.findOne({ email: email})
 
   try {
     if (email == '' || name == '' || password == '') {
       return res.render('register.ejs', {err: 'All fields are required' })
     }
-    if (email || name) {
+    if (userEmail || userName) {
       res.render('register.ejs', {err: "Sorry, email or username already taken"})
     } else {
     const salt = await bcrypt.genSalt(12);

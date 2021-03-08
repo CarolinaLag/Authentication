@@ -12,7 +12,6 @@ const renderTodo = async (req, res) => {
 
   const user =  await User.findOne({_id: req.user.user._id});
   const userTodos = await user.todoList;
-
   try {
     if (page === 1) {
       let data = await TodoTask.find({_id: userTodos}).limit(dataToShow).sort({ date: sorted });
@@ -148,7 +147,6 @@ const removeTodo = async (req, res) => {
    
     try {
       TodoTask.findByIdAndRemove(id, (err) => {
-        //user.removeTodo(id)
         user.todoList.pull({ _id: id });
         user.save();
         if (err) return res.send(500, err);
