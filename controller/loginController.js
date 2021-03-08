@@ -26,7 +26,7 @@ const loginSubmit = async (req, res) => {
 
     const validUser = await bcrypt.compare(password, user.password);
 
-    console.log(validUser);
+    //console.log(validUser);
 
     if (!validUser)
       return res.render("login.ejs", {
@@ -45,7 +45,6 @@ const loginSubmit = async (req, res) => {
   } catch (err) {
     res.render("login.ejs", { err: err });
   }
-  //return res.redirect("/login");
 };
 
 module.exports = {

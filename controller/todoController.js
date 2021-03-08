@@ -66,7 +66,6 @@ const createTodo = async (req, res) => {
     const userTodos = await User.findOne({ _id: req.user.user._id }).populate(
       "todoList"
     );
-    console.log(userTodos);
 
     res.redirect("/todo");
   } catch (err) {
