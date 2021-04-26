@@ -13,6 +13,9 @@ Examples of functionality of the Todo List:
 - Pagination 
 - Sort the list by date
 
+<img width="521" alt="Picture of Todolist with Node.js" src="https://user-images.githubusercontent.com/69104443/116055240-c66b2c00-a67c-11eb-86a2-e654a5a2a0e5.png" />
+<img width="521" alt="Picture of the login page" src="https://user-images.githubusercontent.com/69104443/116055260-cd923a00-a67c-11eb-9f9c-7bc84f9f86f5.png" />
+
 ---
 
 ## Installation
